@@ -1,5 +1,4 @@
-
-import { Search, X, Moon, Sun } from "lucide-react";
+import { Search, X, Moon, Sun, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { type Language, translations } from "@/lib/translations";
 import { cn } from "@/lib/utils";
@@ -88,6 +87,18 @@ export function Header({
               aria-label="Search"
             >
               <Search className="h-4 w-4" />
+            </Button>
+            {/* admin Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => {
+                window.open(process.env.NEXT_PUBLIC_ADMIN_URL, "_blank");
+              }}
+              className="h-10 w-10 text-muted-foreground hover:text-foreground rounded-full"
+              aria-label="Login"
+            >
+              <User className="h-4 w-4" />
             </Button>
           </div>
         </div>
