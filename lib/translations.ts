@@ -1,4 +1,4 @@
-export const translations = {
+﻿export const translations = {
   en: {
     menu: "Menu",
     search: "Search menu...",
@@ -18,6 +18,11 @@ export const translations = {
     tryDifferent: "Try a different search term",
     allCategories: "All",
     items: "Items",
+    open: "Open",
+    closed: "Closed",
+    until: "until",
+    poweredBy: "Powered by Smart Menu",
+    exploreMenu: "Explore Our Menu",
   },
   fr: {
     menu: "Menu",
@@ -38,6 +43,11 @@ export const translations = {
     tryDifferent: "Essayez un autre terme",
     allCategories: "Tout",
     items: "Articles",
+    open: "Ouvert",
+    closed: "Fermé",
+    until: "jusqu'à",
+    poweredBy: "Propulsé par Smart Menu",
+    exploreMenu: "Explorez Notre Menu",
   },
   ar: {
     menu: "القائمة",
@@ -58,6 +68,11 @@ export const translations = {
     tryDifferent: "جرب مصطلح بحث آخر",
     allCategories: "الكل",
     items: "أغراض",
+    open: "مفتوح",
+    closed: "مغلق",
+    until: "حتى",
+    poweredBy: "مدعوم من Smart Menu",
+    exploreMenu: "استكشف قائمتنا",
   },
 } as const;
 

@@ -1,5 +1,4 @@
-
-// ----- Types -----
+﻿// ----- Types -----
 export interface BaseModel {
   id: string;
   created_at?: string;
@@ -37,12 +36,32 @@ export interface Category extends BaseModel {
   isActive: boolean;
 }
 
+export interface Schedule {
+  dayOfWeek: string;
+  opensAt: string;
+  closesAt: string;
+  isClosed: boolean;
+}
+
+export interface Restaurant {
+  id: string;
+  userId: string;
+  slug: string;
+  name: string;
+  phone: string | null;
+  logo: string | null;
+  heroImage: string | null;
+  tagline: string | null;
+  description: string | null;
+  schedules: Schedule[];
+}
+
 export interface MenuData {
-  restaurant: any;
+  restaurant: Restaurant;
   categories: Category[];
   menuItems: MenuItem[];
-  storyCards: any[];
 }
+
 export interface MenuCategoryWithItems extends Category {
   items: MenuItem[];
 }

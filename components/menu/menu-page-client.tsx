@@ -1,24 +1,25 @@
-"use client";
+﻿"use client";
 
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Header } from "@/components/menu/header";
 import { CategoryNav } from "@/components/menu/category-nav";
 import { ChefRecommendations } from "@/components/menu/chef-recommendations";
 import { MenuSection } from "@/components/menu/menu-section";
 import { EmptyState } from "@/components/menu/empty-state";
 import { SplashScreen } from "@/components/menu/splash-screen";
-import type { Category, MenuItem } from "@/lib/types";
+import type { Category, MenuItem, Restaurant } from "@/lib/types";
 import { useMenuFiltering } from "@/hooks/use-menu-filtering";
 import { useCategoryScrollSpy } from "@/hooks/use-category-scroll-spy";
 import { Footer } from "./footer";
 import { Language } from "@/lib/translations";
 
 interface MenuPageClientProps {
+  restaurant: Restaurant | null;
   categories: Category[];
   menuItems: MenuItem[];
 }
 
-export function MenuPageClient({ categories, menuItems }: MenuPageClientProps) {
+export function MenuPageClient({ restaurant, categories, menuItems }: MenuPageClientProps) {
   const [showSplash, setShowSplash] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -69,12 +70,13 @@ export function MenuPageClient({ categories, menuItems }: MenuPageClientProps) {
     !searchQuery && chefRecommendations.length > 0;
 
   if (showSplash) {
-    return <SplashScreen onComplete={handleSplashComplete} />;
+    return <SplashScreen onComplete={handleSplashComplete} restaurant={restaurant} />;
   }
 
   return (
     <div className="min-h-screen bg-background relative">
       <Header
+        restaurant={restaurant}
         language={language}
         onLanguageChange={handleLanguageChange}
         searchQuery={searchQuery}
@@ -113,7 +115,7 @@ export function MenuPageClient({ categories, menuItems }: MenuPageClientProps) {
         )}
       </main>
 
-      <Footer language={language} />
+      <Footer restaurant={restaurant} language={language} />
     </div>
   );
 }
